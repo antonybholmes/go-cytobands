@@ -31,6 +31,10 @@ out = args.out
 
 df = pd.read_csv(file, sep="\t", header=None)
 
+# inc start and end so they are 1 based
+df.iloc[:, 1] +=1
+#df.iloc[:, 2] +=1
+
 print(df.values.tolist())
 
 genome = "hg19"

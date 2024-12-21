@@ -10,7 +10,7 @@ func TestWithin(t *testing.T) {
 
 	db := NewCytobandsDB("/home/antony/development/data/modules/cytobands")
 
-	bands, err := db.Cytobands("chr12")
+	bands, err := db.Cytobands("hg19", "chr12")
 
 	if err != nil {
 		t.Fatalf(`err %s`, err)

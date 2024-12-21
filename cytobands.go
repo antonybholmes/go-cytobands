@@ -2,6 +2,7 @@ package cytobands
 
 import (
 	"database/sql"
+	"fmt"
 	"path/filepath"
 
 	"github.com/antonybholmes/go-dna"
@@ -17,7 +18,7 @@ import (
 const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain FROM cytobands WHERE chr=?1 ORDER BY chr, start, end`
 
 type Cytoband struct {
-	Location    dna.Location `json:"location"`
+	Location    dna.Location `json:"loc"`
 	Name        string       `json:"name"`
 	GiemsaStain string       `json:"giemsaStain"`
 }
@@ -35,8 +36,8 @@ func NewCytobandsDB(dir string) *CytobandsDB {
 	return &CytobandsDB{dir: dir}
 }
 
-func (cytobandsDB *CytobandsDB) Cytobands(chr string) ([]Cytoband, error) {
-	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, "hg19.db"))
+func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
+	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db", genome)))
 
 	if err != nil {
 		return nil, err //fmt.Errorf("there was an error with the database query")

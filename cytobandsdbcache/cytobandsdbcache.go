@@ -25,6 +25,6 @@ func Dir() string {
 	return instance.Dir()
 }
 
-func Cytobands(platform string) ([]cytobands.Cytoband, error) {
-	return instance.Cytobands(platform)
+func Cytobands(genome string, chr string) ([]cytobands.Cytoband, error) {
+	return instance.Cytobands(genome, chr)
 }
