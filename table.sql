@@ -13,7 +13,6 @@ CREATE TABLE cytobands (
 	name TEXT NOT NULL,
 	giemsa_stain TEXT NOT NULL,
 	UNIQUE(chr, start, end, name, giemsa_stain));
-CREATE INDEX cytobands_idx ON cytobands(chr, start, end);
 CREATE INDEX cytobands_name_idx ON cytobands(name);
 
  
