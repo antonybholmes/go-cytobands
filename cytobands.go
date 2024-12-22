@@ -15,12 +15,15 @@ import (
 // const N_BINS_OFFSET_BYTES = BIN_WIDTH_OFFSET_BYTES + 4
 // const BINS_OFFSET_BYTES = N_BINS_OFFSET_BYTES + 4
 
-const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain FROM cytobands WHERE chr=?1 ORDER BY chr, start, end`
+const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain 
+	FROM cytobands 
+	WHERE chr=?1 
+	ORDER BY chr, start, end`
 
 type Cytoband struct {
-	Location    dna.Location `json:"loc"`
 	Name        string       `json:"name"`
 	GiemsaStain string       `json:"giemsaStain"`
+	Location    dna.Location `json:"loc"`
 }
 
 type CytobandsDB struct {
@@ -37,7 +40,7 @@ func NewCytobandsDB(dir string) *CytobandsDB {
 }
 
 func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
-	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db", genome)))
+	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
 
 	if err != nil {
 		return nil, err //fmt.Errorf("there was an error with the database query")
