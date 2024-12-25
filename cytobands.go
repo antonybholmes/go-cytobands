@@ -35,24 +35,24 @@ func (tracksDb *CytobandsDB) Dir() string {
 }
 
 func NewCytobandsDB(dir string) *CytobandsDB {
-
 	return &CytobandsDB{dir: dir}
 }
 
 func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
+	var ret = make([]Cytoband, 0, 10)
+
 	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
 
 	if err != nil {
-		return nil, err //fmt.Errorf("there was an error with the database query")
+		return ret, err //fmt.Errorf("there was an error with the database query")
 	}
 
 	defer db.Close()
 
-	rows, err := db.Query(CHR_SQL,
-		chr)
+	rows, err := db.Query(CHR_SQL, chr)
 
 	if err != nil {
-		return nil, err //fmt.Errorf("there was an error with the database query")
+		return ret, err //fmt.Errorf("there was an error with the database query")
 	}
 
 	defer rows.Close()
@@ -66,14 +66,12 @@ func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband
 	var name string
 	var giemsaStain string
 
-	var ret = make([]Cytoband, 0, 10)
-
 	for rows.Next() {
 		//err := geneRows.Scan(&id, &level, &chr, &start, &end, &strand, &geneSymbol, &geneId, &transcriptId, &exonId)
 		err := rows.Scan(&id, &chr, &start, &end, &name, &giemsaStain)
 
 		if err != nil {
-			return nil, err //fmt.Errorf("there was an error with the database query")
+			return ret, err //fmt.Errorf("there was an error with the database query")
 		}
 
 		ret = append(ret, Cytoband{Location: dna.Location{Chr: chr, Start: start, End: end}, Name: name, GiemsaStain: giemsaStain})
