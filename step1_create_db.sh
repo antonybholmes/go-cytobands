@@ -21,4 +21,11 @@ rm ${dir}/grch38.db
 cat table.sql | sqlite3 ${dir}/grch38.db
 cat ${dir}/grch38.sql | sqlite3 ${dir}/grch38.db
 
- 
+
+python cytotosql.py --file=ucsc_cytobands_mm10.txt --out=${dir}/mm10.sql
+
+rm ${dir}/mm10.db
+cat table.sql | sqlite3 ${dir}/mm10.db
+cat ${dir}/mm10.sql | sqlite3 ${dir}/mm10.db
+
+  
