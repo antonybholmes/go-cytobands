@@ -13,10 +13,13 @@ require (
 	github.com/rs/zerolog v1.33.0
 )
 
-require github.com/antonybholmes/go-basemath v0.0.0-20241223034309-5f70a342a0e3 // indirect
+require (
+	github.com/antonybholmes/go-basemath v0.0.0-20250107213632-9971295f8456 // indirect
+	golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8 // indirect
+)
 
 require (
-	github.com/antonybholmes/go-dna v0.0.0-20241231004053-571f6c9d6eb6
+	github.com/antonybholmes/go-dna v0.0.0-20250107213628-1199d0a50a63
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	golang.org/x/sys v0.29.0 // indirect
