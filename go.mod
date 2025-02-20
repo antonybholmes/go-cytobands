@@ -14,12 +14,12 @@ require (
 )
 
 require (
-	github.com/antonybholmes/go-basemath v0.0.0-20250210230743-9da55b7ac3fd // indirect
-	golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac // indirect
+	github.com/antonybholmes/go-basemath v0.0.0-20250213145427-b2243abab911 // indirect
+	golang.org/x/exp v0.0.0-20250218142911-aa4b98e5adaa // indirect
 )
 
 require (
-	github.com/antonybholmes/go-dna v0.0.0-20250210230739-b3791e252d47
+	github.com/antonybholmes/go-dna v0.0.0-20250213145422-9c2121741e1f
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	golang.org/x/sys v0.30.0 // indirect
