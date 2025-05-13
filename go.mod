@@ -21,7 +21,7 @@ require (
 )
 
 require (
-	github.com/antonybholmes/go-dna v0.0.0-20250508201820-47a1045684e9
+	github.com/antonybholmes/go-dna v0.0.0-20250509222604-3dd9e6aa9ab6
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	golang.org/x/sys v0.33.0 // indirect
