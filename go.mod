@@ -11,13 +11,13 @@ replace github.com/antonybholmes/go-sys => ../go-sys
 replace github.com/antonybholmes/go-basemath => ../go-basemath
 
 require (
-	github.com/mattn/go-sqlite3 v1.14.30
+	github.com/mattn/go-sqlite3 v1.14.31
 	github.com/rs/zerolog v1.34.0
 )
 
 require (
 	github.com/antonybholmes/go-basemath v0.0.0-20250718220222-02e267b47e76 // indirect
-	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792 // indirect
+	golang.org/x/exp v0.0.0-20250811191247-51f88131bc50 // indirect
 )
 
 require (
