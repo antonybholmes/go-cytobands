@@ -6,8 +6,10 @@ import (
 	"github.com/antonybholmes/go-cytobands"
 )
 
-var instance *cytobands.CytobandsDB
-var once sync.Once
+var (
+	instance *cytobands.CytobandsDB
+	once     sync.Once
+)
 
 func InitCache(dir string) *cytobands.CytobandsDB {
 	once.Do(func() {
