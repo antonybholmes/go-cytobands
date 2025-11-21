@@ -21,9 +21,9 @@ const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain
 	ORDER BY chr, start, end`
 
 type Cytoband struct {
-	Name        string       `json:"name"`
-	GiemsaStain string       `json:"giemsaStain"`
-	Location    dna.Location `json:"loc"`
+	Name        string        `json:"name"`
+	GiemsaStain string        `json:"giemsaStain"`
+	Location    *dna.Location `json:"loc"`
 }
 
 type CytobandsDB struct {
@@ -59,10 +59,10 @@ func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband
 
 	//var currentExon *GenomicSearchFeature
 
-	var id uint
+	var id int
 
-	var start uint
-	var end uint
+	var start int
+	var end int
 	var name string
 	var giemsaStain string
 
@@ -74,7 +74,13 @@ func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband
 			return ret, err //fmt.Errorf("there was an error with the database query")
 		}
 
-		ret = append(ret, Cytoband{Location: dna.Location{Chr: chr, Start: start, End: end}, Name: name, GiemsaStain: giemsaStain})
+		location, err := dna.NewLocation(chr, start, end)
+
+		if err != nil {
+			return ret, err
+		}
+
+		ret = append(ret, Cytoband{Location: location, Name: name, GiemsaStain: giemsaStain})
 	}
 
 	return ret, nil
