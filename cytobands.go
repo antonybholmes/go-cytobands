@@ -21,9 +21,9 @@ const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain
 	ORDER BY chr, start, end`
 
 type Cytoband struct {
+	Location    *dna.Location `json:"loc"`
 	Name        string        `json:"name"`
 	GiemsaStain string        `json:"giemsaStain"`
-	Location    *dna.Location `json:"loc"`
 }
 
 type CytobandsDB struct {
