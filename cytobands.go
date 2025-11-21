@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/antonybholmes/go-dna"
+	"github.com/antonybholmes/go-sys"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -15,20 +16,22 @@ import (
 // const N_BINS_OFFSET_BYTES = BIN_WIDTH_OFFSET_BYTES + 4
 // const BINS_OFFSET_BYTES = N_BINS_OFFSET_BYTES + 4
 
-const CHR_SQL = `SELECT id, chr, start, end, name, giemsa_stain 
+type (
+	Cytoband struct {
+		Location    *dna.Location `json:"loc"`
+		Name        string        `json:"name"`
+		GiemsaStain string        `json:"giemsaStain"`
+	}
+
+	CytobandsDB struct {
+		dir string
+	}
+)
+
+const ChrSql = `SELECT id, chr, start, end, name, giemsa_stain 
 	FROM cytobands 
-	WHERE chr=?1 
+	WHERE chr=:chr 
 	ORDER BY chr, start, end`
-
-type Cytoband struct {
-	Location    *dna.Location `json:"loc"`
-	Name        string        `json:"name"`
-	GiemsaStain string        `json:"giemsaStain"`
-}
-
-type CytobandsDB struct {
-	dir string
-}
 
 func (tracksDb *CytobandsDB) Dir() string {
 	return tracksDb.dir
@@ -41,7 +44,7 @@ func NewCytobandsDB(dir string) *CytobandsDB {
 func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
 	var ret = make([]Cytoband, 0, 10)
 
-	db, err := sql.Open("sqlite3", filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
+	db, err := sql.Open(sys.Sqlite3DB, filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
 
 	if err != nil {
 		return ret, err //fmt.Errorf("there was an error with the database query")
@@ -49,7 +52,7 @@ func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband
 
 	defer db.Close()
 
-	rows, err := db.Query(CHR_SQL, chr)
+	rows, err := db.Query(ChrSql, sql.Named("chr", chr))
 
 	if err != nil {
 		return ret, err //fmt.Errorf("there was an error with the database query")
