@@ -9,7 +9,7 @@ replace github.com/antonybholmes/go-sys => ../go-sys
 replace github.com/antonybholmes/go-basemath => ../go-basemath
 
 require (
-	github.com/antonybholmes/go-sys v0.0.0-20251211184816-38c1e4f69349
+	github.com/antonybholmes/go-sys v0.0.0-20251215211105-61a3d71011f7
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/rs/zerolog v1.34.0
 )
