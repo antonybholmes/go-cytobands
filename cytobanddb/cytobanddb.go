@@ -1,4 +1,4 @@
-package cytobandsdbcache
+package cytobanddb
 
 import (
 	"sync"
@@ -7,19 +7,19 @@ import (
 )
 
 var (
-	instance *cytobands.CytobandsDB
+	instance *cytobands.CytobandDB
 	once     sync.Once
 )
 
-func InitCache(dir string) *cytobands.CytobandsDB {
+func InitCytobandDB(dir string) *cytobands.CytobandDB {
 	once.Do(func() {
-		instance = cytobands.NewCytobandsDB(dir)
+		instance = cytobands.NewCytobandDB(dir)
 	})
 
 	return instance
 }
 
-func GetInstance() *cytobands.CytobandsDB {
+func GetInstance() *cytobands.CytobandDB {
 	return instance
 }
 

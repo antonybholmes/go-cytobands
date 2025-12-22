@@ -8,7 +8,7 @@ import (
 
 func TestWithin(t *testing.T) {
 
-	db := NewCytobandsDB("/home/antony/development/data/modules/cytobands")
+	db := NewCytobandDB("/home/antony/development/data/modules/cytobands")
 
 	bands, err := db.Cytobands("hg19", "chr12")
 

@@ -23,7 +23,7 @@ type (
 		GiemsaStain string        `json:"giemsaStain"`
 	}
 
-	CytobandsDB struct {
+	CytobandDB struct {
 		dir string
 	}
 )
@@ -33,15 +33,15 @@ const ChrSql = `SELECT id, chr, start, end, name, giemsa_stain
 	WHERE chr=:chr 
 	ORDER BY chr, start, end`
 
-func (tracksDb *CytobandsDB) Dir() string {
+func (tracksDb *CytobandDB) Dir() string {
 	return tracksDb.dir
 }
 
-func NewCytobandsDB(dir string) *CytobandsDB {
-	return &CytobandsDB{dir: dir}
+func NewCytobandDB(dir string) *CytobandDB {
+	return &CytobandDB{dir: dir}
 }
 
-func (cytobandsDB *CytobandsDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
+func (cytobandsDB *CytobandDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
 	var ret = make([]Cytoband, 0, 10)
 
 	db, err := sql.Open(sys.Sqlite3DB, filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
