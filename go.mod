@@ -9,14 +9,14 @@ replace github.com/antonybholmes/go-sys => ../go-sys
 replace github.com/antonybholmes/go-basemath => ../go-basemath
 
 require (
-	github.com/antonybholmes/go-sys v0.0.0-20251215211105-61a3d71011f7
+	github.com/antonybholmes/go-sys v0.0.0-20260105204539-98810971944a
 	github.com/gin-gonic/gin v1.11.0
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/rs/zerolog v1.34.0
 )
 
 require (
-	github.com/antonybholmes/go-basemath v0.0.0-20251211184815-6e7285b975dd // indirect
+	github.com/antonybholmes/go-basemath v0.0.0-20251222161838-164f0a0354bb // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.2 // indirect
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
@@ -38,7 +38,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
 	github.com/quic-go/quic-go v0.57.1 // indirect
-	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/mscfb v1.0.5 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
 	github.com/tiendc/go-deepcopy v1.7.2 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
