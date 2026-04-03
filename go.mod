@@ -9,14 +9,14 @@ replace github.com/antonybholmes/go-sys => ../go-sys
 replace github.com/antonybholmes/go-basemath => ../go-basemath
 
 require (
-	github.com/antonybholmes/go-sys v0.0.0-20260309200013-0638ffae4b9c
+	github.com/antonybholmes/go-sys v0.0.0-20260318223134-b63e69af9c78
 	github.com/gin-gonic/gin v1.11.0
 	github.com/mattn/go-sqlite3 v1.14.32
-	github.com/rs/zerolog v1.34.0
+	github.com/rs/zerolog v1.35.0
 )
 
 require (
-	github.com/antonybholmes/go-basemath v0.0.0-20260204001030-d512600734fa // indirect
+	github.com/antonybholmes/go-basemath v0.0.0-20260313220641-74ea9151950a // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.2 // indirect
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
