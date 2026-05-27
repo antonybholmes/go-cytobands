@@ -2,11 +2,10 @@ package cytobands
 
 import (
 	"database/sql"
-	"fmt"
 	"path/filepath"
 
 	"github.com/antonybholmes/go-dna"
-	"github.com/antonybholmes/go-sys"
+	"github.com/antonybholmes/go-sys/db"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -44,7 +43,7 @@ func NewCytobandDB(dir string) *CytobandDB {
 func (cytobandsDB *CytobandDB) Cytobands(genome string, chr string) ([]Cytoband, error) {
 	var ret = make([]Cytoband, 0, 10)
 
-	db, err := sql.Open(sys.Sqlite3DB, filepath.Join(cytobandsDB.dir, fmt.Sprintf("%s.db?mode=ro", genome)))
+	db, err := sql.Open(db.Sqlite3DB, filepath.Join(cytobandsDB.dir, genome+".db"+db.SqliteReadOnlySuffix))
 
 	if err != nil {
 		return ret, err //fmt.Errorf("there was an error with the database query")
