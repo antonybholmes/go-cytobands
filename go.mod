@@ -48,7 +48,7 @@ require (
 	github.com/xuri/nfp v0.0.2-0.20250530014748-2ddeb826f9a9 // indirect
 	golang.org/x/arch v0.23.0 // indirect
 	golang.org/x/crypto v0.52.0 // indirect
-	golang.org/x/exp v0.0.0-20260527015227-08cc5374adb3 // indirect
+	golang.org/x/exp v0.0.0-20260603202125-055de637280b // indirect
 	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/text v0.37.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
@@ -58,7 +58,7 @@ require (
 require (
 	github.com/antonybholmes/go-dna v0.0.0-20251121215821-87b42eef25c5
 	github.com/antonybholmes/go-web v0.0.0-20251215211100-5555b69aa3c0
-	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect
 	golang.org/x/sys v0.45.0 // indirect
 )
