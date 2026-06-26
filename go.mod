@@ -6,8 +6,6 @@ go 1.26
 
 // replace github.com/antonybholmes/go-sys => ../go-sys
 
-// replace github.com/antonybholmes/go-basemath => ../go-basemath
-
 require (
 	github.com/antonybholmes/go-sys v0.0.0-20260616152946-01b9b0d3a79b
 	github.com/gin-gonic/gin v1.11.0
