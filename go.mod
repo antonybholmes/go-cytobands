@@ -2,21 +2,21 @@ module github.com/antonybholmes/go-cytobands
 
 go 1.26
 
-replace github.com/antonybholmes/go-dna => ../go-dna
+// replace github.com/antonybholmes/go-dna => ../go-dna
 
-replace github.com/antonybholmes/go-sys => ../go-sys
+// replace github.com/antonybholmes/go-sys => ../go-sys
 
-replace github.com/antonybholmes/go-basemath => ../go-basemath
+// replace github.com/antonybholmes/go-basemath => ../go-basemath
 
 require (
-	github.com/antonybholmes/go-sys v0.0.0-20260609172735-8ea2a7623e43
+	github.com/antonybholmes/go-sys v0.0.0-20260616152946-01b9b0d3a79b
 	github.com/gin-gonic/gin v1.11.0
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/rs/zerolog v1.35.1
 )
 
 require (
-	github.com/antonybholmes/go-basemath v0.0.0-20260603221554-d647819bbf21 // indirect
+	github.com/antonybholmes/go-basemath v0.0.0-20260616152945-9dcd1ed04536 // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.2 // indirect
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
