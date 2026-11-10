@@ -8,7 +8,7 @@ import (
 
 func CytobandsRoute(c *gin.Context) {
 
-	cytobands, _ := cytobanddb.Cytobands(c.Param("assembly"), c.Param("chr"))
+	cytobands, _ := cytobanddb.Instance().Cytobands(c.Param("assembly"), c.Param("chr"))
 
 	// if err != nil {
 	// 	return web.ErrorReq(err)

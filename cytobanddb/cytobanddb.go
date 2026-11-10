@@ -19,14 +19,6 @@ func InitCytobandDB(dir string) *cytobands.CytobandDB {
 	return instance
 }
 
-func GetInstance() *cytobands.CytobandDB {
+func Instance() *cytobands.CytobandDB {
 	return instance
-}
-
-func Dir() string {
-	return instance.Dir()
-}
-
-func Cytobands(assembly string, chr string) ([]cytobands.Cytoband, error) {
-	return instance.Cytobands(assembly, chr)
 }
